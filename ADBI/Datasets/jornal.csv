@@ -1,0 +1,101 @@
+,sexo,idade,habilit,p1,p2,p3,p4,p5a,p5b,p5c,p5d,p5e,p5f,p5g,p5h,p5i,p5j,p5k,pb,pc,pd,pe
+0,feminino,33.0,até ensino secundário,Expresso,60.0,Ler tudo com atenção,8.0,2,2,4,4,3,5,5,5,2,5,5,diários e semanários,5.0,70.0,
+1,feminino,33.0,até ensino secundário,Expresso,60.0,Ler tudo com atenção,5.0,3,4,4,5,4,4,4,4,5,4,4,diários e semanários,2.0,70.0,correio da manhã
+2,feminino,37.0,até ensino secundário,Expresso,120.0,Ler algumas secções,5.0,4,3,4,4,3,3,4,5,5,4,3,diários e semanários,3.0,140.0,a capital
+3,feminino,30.0,até ensino secundário,Expresso,180.0,Ler algumas secções,4.0,2,3,4,5,2,3,3,5,1,3,5,diários e semanários,1.0,200.0,diário de notícias
+4,feminino,25.0,até ensino secundário,Expresso,30.0,Ler algumas secções,3.0,4,3,4,5,4,5,5,5,5,5,4,diários e semanários,2.0,30.0,
+5,feminino,45.0,até ensino secundário,Expresso,120.0,Ler tudo com atenção,3.0,1,2,5,5,4,5,4,5,5,5,5,diários e semanários,3.0,140.0,diário de notícias
+6,feminino,28.0,ensino médio e superior,Expresso,90.0,Ler tudo com atenção,9.0,3,2,5,5,5,3,4,3,5,3,1,diários e semanários,10.0,110.0,diário de notícias
+7,feminino,,ensino médio e superior,Expresso,150.0,Ler tudo com atenção,9.0,4,3,5,4,3,4,4,5,5,5,5,diários e semanários,10.0,180.0,diário de notícias
+8,feminino,,ensino médio e superior,Expresso,150.0,Ler tudo com atenção,7.0,3,3,4,5,5,4,4,5,5,5,4,diários e semanários,7.0,180.0,diário de notícias
+9,feminino,37.0,ensino médio e superior,Expresso,120.0,Ler tudo com atenção,6.0,3,4,4,5,5,5,4,4,3,5,4,diários e semanários,6.0,140.0,a capital
+10,feminino,25.0,ensino médio e superior,Expresso,30.0,Ler algumas secções,5.0,1,1,5,3,4,2,2,5,1,5,2,diários e semanários,3.0,30.0,outro
+11,feminino,45.0,ensino médio e superior,Expresso,120.0,Ler algumas secções,4.0,3,3,4,4,3,4,4,5,2,4,5,diários e semanários,11.0,140.0,correio da manhã
+12,feminino,30.0,ensino médio e superior,Expresso,180.0,Ler tudo com atenção,4.0,4,3,5,5,5,5,4,4,5,5,4,diários e semanários,7.0,210.0,correio da manhã
+13,feminino,28.0,ensino médio e superior,Expresso,90.0,Ler tudo com atenção,2.0,3,4,4,5,4,4,4,4,3,5,5,diários e semanários,9.0,100.0,outro
+14,masculino,,até ensino secundário,Expresso,60.0,Ler tudo com atenção,10.0,3,4,4,5,3,4,3,4,5,3,4,diários e semanários,6.0,70.0,público
+15,masculino,25.0,até ensino secundário,Expresso,195.0,Ler algumas secções,10.0,3,4,5,5,4,5,5,4,5,3,3,diários e semanários,12.0,230.0,outro
+16,masculino,34.0,até ensino secundário,Expresso,75.0,Ler algumas secções,7.0,2,2,4,4,4,5,5,3,5,4,3,diários e semanários,14.0,90.0,diário de notícias
+17,masculino,,até ensino secundário,Expresso,60.0,Ler tudo com atenção,7.0,3,4,4,4,5,5,5,4,5,3,3,diários e semanários,6.0,70.0,diário de notícias
+18,masculino,33.0,até ensino secundário,Expresso,120.0,Ler tudo com atenção,7.0,4,4,5,5,5,5,4,5,5,3,4,diários e semanários,7.0,140.0,outro
+19,masculino,,até ensino secundário,Expresso,75.0,Ler algumas secções,7.0,3,3,4,4,4,4,4,4,4,3,1,diários e semanários,7.0,90.0,outro
+20,masculino,40.0,até ensino secundário,Expresso,150.0,Ler tudo com atenção,6.0,2,3,5,5,5,4,5,5,5,5,5,diários e semanários,11.0,180.0,diário de notícias
+21,masculino,32.0,até ensino secundário,Expresso,120.0,Ler algumas secções,6.0,2,1,4,5,4,4,5,4,5,5,4,diários e semanários,9.0,140.0,diário de notícias
+22,masculino,29.0,até ensino secundário,Expresso,180.0,Ler tudo com atenção,6.0,4,3,4,4,3,5,5,5,4,4,4,diários e semanários,13.0,210.0,correio da manhã
+23,masculino,,até ensino secundário,Expresso,75.0,Ler tudo com atenção,6.0,3,4,4,5,4,5,5,4,5,4,5,diários e semanários,16.0,90.0,correio da manhã
+24,masculino,32.0,até ensino secundário,Expresso,60.0,Ler algumas secções,6.0,3,3,5,4,5,5,4,3,4,3,3,diários e semanários,14.0,70.0,correio da manhã
+25,masculino,28.0,até ensino secundário,Expresso,105.0,Ler tudo com atenção,6.0,3,4,4,5,3,4,4,3,3,2,2,diários e semanários,11.0,120.0,correio da manhã
+26,masculino,45.0,até ensino secundário,Expresso,120.0,Ler algumas secções,5.0,2,1,4,4,4,4,5,4,5,4,4,diários e semanários,7.0,100.0,público
+27,masculino,39.0,até ensino secundário,Expresso,165.0,Ler tudo com atenção,5.0,4,4,5,5,4,5,5,5,5,5,3,diários e semanários,7.0,200.0,público
+28,masculino,28.0,até ensino secundário,Expresso,150.0,Ler tudo com atenção,5.0,2,1,4,3,5,5,3,4,4,3,2,diários e semanários,4.0,180.0,diário de notícias
+29,masculino,39.0,até ensino secundário,Expresso,165.0,Ler tudo com atenção,4.0,3,4,4,4,3,5,4,3,5,4,3,diários e semanários,7.0,180.0,diário de notícias
+30,masculino,24.0,até ensino secundário,Expresso,135.0,Ler algumas secções,4.0,2,3,5,5,5,5,4,5,5,5,5,diários e semanários,7.0,160.0,diário de notícias
+31,masculino,24.0,ensino médio e superior,Expresso,135.0,Ler tudo com atenção,16.0,2,4,4,4,3,5,5,5,5,4,3,só semanários,,,
+32,masculino,45.0,ensino médio e superior,Expresso,120.0,Ler algumas secções,15.0,3,4,5,5,5,5,5,5,5,5,2,diários e semanários,1.0,140.0,outro
+33,masculino,32.0,ensino médio e superior,Expresso,120.0,Ler tudo com atenção,15.0,2,3,4,3,1,2,3,4,4,3,1,diários e semanários,3.0,140.0,diário de notícias
+34,masculino,25.0,ensino médio e superior,Expresso,195.0,Ler tudo com atenção,12.0,3,4,5,5,5,5,5,5,5,5,5,diários e semanários,5.0,230.0,a capital
+35,masculino,44.0,ensino médio e superior,Expresso,90.0,Ler tudo com atenção,12.0,2,3,5,4,3,3,3,3,4,3,3,diários e semanários,7.0,110.0,a capital
+36,masculino,32.0,ensino médio e superior,Expresso,60.0,Ler tudo com atenção,10.0,4,4,5,5,5,4,4,5,5,4,4,diários e semanários,7.0,80.0,a capital
+37,masculino,40.0,ensino médio e superior,Expresso,150.0,Ler tudo com atenção,10.0,4,4,5,5,5,5,5,5,5,5,5,diários e semanários,6.0,180.0,diário de notícias
+38,masculino,30.0,ensino médio e superior,Expresso,180.0,Ler tudo com atenção,10.0,3,4,4,5,4,5,4,4,5,4,1,diários e semanários,6.0,200.0,diário de notícias
+39,masculino,29.0,ensino médio e superior,Expresso,180.0,Ler tudo com atenção,10.0,2,3,5,5,4,4,3,3,3,3,3,diários e semanários,2.0,220.0,diário de notícias
+40,masculino,37.0,ensino médio e superior,Expresso,105.0,Ler tudo com atenção,6.0,4,4,4,4,3,4,4,4,4,4,3,diários e semanários,9.0,130.0,diário de notícias
+41,masculino,30.0,ensino médio e superior,Expresso,180.0,Ler algumas secções,5.0,3,3,4,5,4,5,4,5,5,4,5,diários e semanários,10.0,200.0,diário de notícias
+42,masculino,28.0,ensino médio e superior,Expresso,150.0,Ler algumas secções,5.0,3,4,5,5,5,3,4,5,5,5,5,diários e semanários,9.0,180.0,público
+43,masculino,31.0,ensino médio e superior,Expresso,120.0,Ler algumas secções,5.0,3,4,3,5,4,3,4,4,5,3,2,diários e semanários,7.0,150.0,público
+44,masculino,28.0,ensino médio e superior,Expresso,105.0,Ler tudo com atenção,5.0,3,5,5,5,5,5,5,5,5,4,5,diários e semanários,13.0,160.0,público
+45,masculino,31.0,ensino médio e superior,Expresso,120.0,Ler algumas secções,5.0,3,3,4,5,3,3,4,4,4,4,4,diários e semanários,12.0,140.0,público
+46,masculino,44.0,ensino médio e superior,Expresso,90.0,Ler algumas secções,4.0,3,3,4,4,3,3,4,5,5,5,5,diários e semanários,20.0,100.0,a capital
+47,masculino,33.0,ensino médio e superior,Expresso,120.0,Ler tudo com atenção,4.0,4,3,5,5,5,5,5,5,5,5,5,diários e semanários,19.0,140.0,a capital
+48,masculino,37.0,ensino médio e superior,Expresso,105.0,Ler algumas secções,4.0,2,4,3,4,4,3,4,5,5,3,2,diários e semanários,18.0,120.0,a capital
+49,masculino,34.0,,Expresso,75.0,Ler tudo com atenção,8.0,4,4,5,5,4,5,5,5,5,5,5,diários e semanários,5.0,90.0,a capital
+50,feminino,30.0,até ensino secundário,Regional,60.0,Ler algumas secções,5.0,4,3,4,5,4,5,4,4,5,5,5,diários e semanários,1.0,70.0,a capital
+51,feminino,50.0,até ensino secundário,Regional,45.0,Ler algumas secções,2.0,3,4,4,5,3,5,4,5,5,3,4,diários e semanários,4.0,55.0,diário de notícias
+52,feminino,45.0,ensino médio e superior,Regional,90.0,Ler algumas secções,9.0,3,4,4,5,4,4,4,4,5,4,5,diários e semanários,11.0,110.0,diário de notícias
+53,feminino,39.0,ensino médio e superior,Regional,90.0,Ler algumas secções,7.0,4,3,3,4,3,3,3,5,5,4,5,diários e semanários,7.0,110.0,diário de notícias
+54,feminino,24.0,ensino médio e superior,Regional,30.0,Ler tudo com atenção,4.0,4,4,4,4,4,3,3,4,4,4,4,diários e semanários,12.0,30.0,a capital
+55,masculino,38.0,até ensino secundário,Regional,45.0,Ler algumas secções,10.0,5,4,4,5,3,5,5,4,5,4,4,diários e semanários,7.0,50.0,público
+56,masculino,33.0,até ensino secundário,Regional,75.0,Ler algumas secções,9.0,5,5,5,5,3,3,3,5,5,5,5,diários e semanários,13.0,90.0,diário de notícias
+57,masculino,35.0,até ensino secundário,Regional,50.0,Dar uma vista de olhos,8.0,3,2,3,3,3,3,2,4,3,3,5,diários e semanários,14.0,60.0,diário de notícias
+58,masculino,38.0,até ensino secundário,Regional,45.0,Ler tudo com atenção,7.0,4,4,5,5,5,5,5,5,5,5,4,diários e semanários,15.0,55.0,público
+59,masculino,39.0,até ensino secundário,Regional,90.0,Ler algumas secções,7.0,2,3,2,1,2,4,3,4,3,4,5,diários e semanários,12.0,100.0,público
+60,masculino,,até ensino secundário,Regional,60.0,Ler algumas secções,7.0,4,4,3,5,2,3,4,5,5,4,4,diários e semanários,13.0,70.0,público
+61,masculino,41.0,até ensino secundário,Regional,105.0,Ler tudo com atenção,6.0,3,3,3,3,4,3,5,4,3,5,5,diários e semanários,10.0,90.0,correio da manhã
+62,masculino,41.0,até ensino secundário,Regional,105.0,Ler tudo com atenção,6.0,5,5,5,5,5,5,5,5,5,5,5,diários e semanários,10.0,120.0,correio da manhã
+63,masculino,38.0,até ensino secundário,Regional,45.0,,4.0,3,2,2,3,2,2,2,4,5,5,4,diários e semanários,6.0,50.0,diário de notícias
+64,masculino,24.0,até ensino secundário,Regional,30.0,Ler algumas secções,4.0,5,5,5,5,5,5,4,5,5,5,5,diários e semanários,9.0,45.0,diário de notícias
+65,masculino,28.0,até ensino secundário,Regional,50.0,Ler algumas secções,4.0,2,2,5,5,5,5,4,5,5,5,5,diários e semanários,7.0,60.0,diário de notícias
+66,masculino,24.0,até ensino secundário,Regional,30.0,Ler algumas secções,3.0,2,4,4,4,3,4,5,5,4,5,4,diários e semanários,9.0,45.0,diário de notícias
+67,masculino,38.0,ensino médio e superior,Regional,45.0,,16.0,3,4,4,5,4,4,3,5,5,4,4,só semanários,,,
+68,masculino,35.0,ensino médio e superior,Regional,50.0,Ler algumas secções,14.0,2,5,5,5,4,4,5,5,5,5,4,diários e semanários,4.0,60.0,diário de notícias
+69,masculino,33.0,ensino médio e superior,Regional,75.0,Ler algumas secções,14.0,4,4,4,5,4,4,4,5,5,4,4,diários e semanários,4.0,90.0,outro
+70,masculino,34.0,ensino médio e superior,Regional,60.0,Ler algumas secções,14.0,3,4,4,5,5,4,4,5,5,5,5,diários e semanários,4.0,70.0,correio da manhã
+71,masculino,34.0,ensino médio e superior,Regional,60.0,,12.0,5,4,4,4,5,4,4,5,5,5,5,diários e semanários,4.0,70.0,correio da manhã
+72,masculino,,ensino médio e superior,Regional,60.0,Ler tudo com atenção,8.0,3,4,3,4,3,4,4,4,3,4,4,diários e semanários,2.0,60.0,diário de notícias
+73,masculino,39.0,ensino médio e superior,Regional,90.0,Ler algumas secções,8.0,5,4,3,3,5,4,1,3,4,4,3,diários e semanários,9.0,100.0,diário de notícias
+74,masculino,28.0,ensino médio e superior,Regional,50.0,Ler tudo com atenção,6.0,5,5,5,5,5,5,5,5,5,3,4,diários e semanários,12.0,60.0,diário de notícias
+75,feminino,20.0,até ensino secundário,Sol,45.0,Ler algumas secções,8.0,5,4,3,3,2,2,2,5,4,3,5,diários e semanários,6.0,55.0,público
+76,feminino,,até ensino secundário,Sol,45.0,Dar uma vista de olhos,8.0,5,5,4,5,4,5,5,4,5,5,3,diários e semanários,3.0,55.0,público
+77,feminino,32.0,até ensino secundário,Sol,60.0,Ler algumas secções,7.0,3,3,4,5,3,3,4,3,4,4,3,diários e semanários,2.0,70.0,correio da manhã
+78,feminino,28.0,até ensino secundário,Sol,60.0,Dar uma vista de olhos,4.0,4,4,4,5,2,4,3,3,2,3,3,diários e semanários,1.0,60.0,diário de notícias
+79,feminino,,ensino médio e superior,Sol,45.0,Ler algumas secções,9.0,4,4,4,4,3,3,3,5,5,5,3,diários e semanários,14.0,50.0,diário de notícias
+80,feminino,28.0,ensino médio e superior,Sol,60.0,Ler algumas secções,9.0,5,5,3,5,5,4,4,3,4,4,2,diários e semanários,12.0,70.0,diário de notícias
+81,feminino,,ensino médio e superior,Sol,75.0,Ler algumas secções,8.0,5,5,5,5,5,5,4,5,5,5,5,diários e semanários,9.0,90.0,diário de notícias
+82,feminino,,ensino médio e superior,Sol,75.0,Ler algumas secções,8.0,5,5,5,5,3,3,4,5,5,5,5,diários e semanários,9.0,90.0,diário de notícias
+83,feminino,29.0,ensino médio e superior,Sol,30.0,Ler algumas secções,6.0,3,5,3,3,4,3,4,3,3,4,4,diários e semanários,5.0,40.0,público
+84,feminino,32.0,ensino médio e superior,Sol,60.0,Ler tudo com atenção,6.0,4,4,3,3,4,4,4,4,3,3,4,diários e semanários,7.0,70.0,público
+85,feminino,40.0,ensino médio e superior,Sol,90.0,Ler algumas secções,6.0,4,4,3,3,4,5,4,3,4,4,3,diários e semanários,6.0,100.0,a capital
+86,feminino,35.0,ensino médio e superior,Sol,45.0,Ler tudo com atenção,5.0,5,5,5,3,2,3,5,5,5,5,5,diários e semanários,3.0,55.0,a capital
+87,feminino,29.0,ensino médio e superior,Sol,30.0,Ler algumas secções,5.0,4,4,5,4,3,4,3,5,1,4,5,diários e semanários,10.0,30.0,a capital
+88,feminino,40.0,ensino médio e superior,Sol,90.0,Dar uma vista de olhos,3.0,5,5,4,3,3,5,4,2,4,3,2,diários e semanários,17.0,100.0,correio da manhã
+89,feminino,35.0,ensino médio e superior,Sol,45.0,Ler algumas secções,3.0,3,4,4,3,3,3,3,4,4,4,3,diários e semanários,9.0,55.0,outro
+90,masculino,29.0,até ensino secundário,Sol,45.0,Ler algumas secções,10.0,5,4,4,5,4,5,5,4,5,5,5,diários e semanários,10.0,50.0,público
+91,masculino,25.0,até ensino secundário,Sol,30.0,Ler algumas secções,9.0,5,4,5,5,3,5,3,4,5,3,3,diários e semanários,9.0,35.0,diário de notícias
+92,masculino,44.0,até ensino secundário,Sol,45.0,Ler algumas secções,8.0,4,4,4,5,5,3,4,5,5,5,5,diários e semanários,15.0,50.0,diário de notícias
+93,masculino,48.0,até ensino secundário,Sol,60.0,Dar uma vista de olhos,7.0,4,4,4,4,5,4,4,5,5,5,4,diários e semanários,11.0,70.0,diário de notícias
+94,masculino,41.0,até ensino secundário,Sol,60.0,Ler algumas secções,6.0,4,4,4,4,4,3,4,5,5,3,3,diários e semanários,15.0,75.0,correio da manhã
+95,masculino,33.0,até ensino secundário,Sol,60.0,Ler tudo com atenção,5.0,5,5,5,5,5,5,5,5,5,5,5,diários e semanários,5.0,60.0,diário de notícias
+96,masculino,31.0,até ensino secundário,Sol,60.0,Ler tudo com atenção,5.0,5,5,1,5,2,5,5,3,5,5,2,diários e semanários,6.0,75.0,diário de notícias
+97,masculino,25.0,ensino médio e superior,Sol,30.0,Ler tudo com atenção,12.0,4,5,4,5,5,5,4,5,4,5,5,diários e semanários,4.0,35.0,a capital
+98,masculino,28.0,ensino médio e superior,Sol,90.0,Ler algumas secções,6.0,4,3,3,4,4,5,5,4,5,4,3,diários e semanários,12.0,130.0,diário de notícias
+99,masculino,28.0,,Sol,90.0,Ler algumas secções,6.0,3,4,4,4,4,4,4,4,4,4,4,diários e semanários,5.0,100.0,diário de notícias
