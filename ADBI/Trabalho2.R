@@ -48,7 +48,9 @@ head(data)
 #Response_Cmp3 - Categórico - indicador de que o cliente aceitou a oferta na campanha 3
 #Response_Cmp4 - Categórico - indicador de que o cliente aceitou a oferta na campanha 4
 #Response_Cmp5 - Categórico - indicador de que o cliente aceitou a oferta na campanha 5
-
+#cp1 - complementares, contem as variaveis com mais informção sobre os items complementares
+#cp2 _ pedidos adicionais, contem as variaveis com mais informção sobre os pedidos adicionais 
+#cp3 - pratos principais, contem as variaveis com mais informção sobre os pratos principais
 
 #Verificar a existência de nulos
 is.na(data)
@@ -242,11 +244,13 @@ resultados_anova <- lapply(variaveis_clustering, function(var) {
 # Combinar os resultados num único data frame
 tabela_anova <- do.call(rbind, resultados_anova)
 
-print(final_cluster_centers)
+
 
 data$Cluster <- as.factor(kmeans_result$cluster)
 
-# Create the scatter plot with clusters
+#c. Calcule os centros finais dos clusters, apresente os resultados em gráficos que achar adequados
+
+
 cluster_plot <- ggplot(data, aes(x = Income, y = Indice_PC3, color = Cluster)) +
   geom_point(size = 3, alpha = 0.8) +
   labs(title = "Cluster Plot", x = "Income", y = "Indice_PC3") +
@@ -256,3 +260,26 @@ cluster_plot <- ggplot(data, aes(x = Income, y = Indice_PC3, color = Cluster)) +
 # Display the plot
 print(cluster_plot)
 
+
+#d. Que características distinguem os grupos formados? Justifique.
+
+#os clusters formados, são bastantes distintos pelo o Income, não é de admirar visto que este possui o mair F-value,logo possui o maior fator de diferenciação , usamos o indice_PC3 tambem pois este tinha o 2 maior F-Value
+
+
+#e.Os 4 clusters são formados por quantos clientes? Era espectável termos discrepância no
+#número de casos em cada cluster? Justifique
+
+print(cluster_sizes)
+
+# o grupo 4 possui o menor número de pessoas, devido a estes possuirem salarios bastante elevados. 
+
+
+#f. Sugira uma campanha de marketing direcionada para um dos clusters. Explique como os dados analisados justificam essa escolha
+
+print(final_cluster_centers)
+print(cluster_sizes)
+
+
+#Podemos criar uma campanha para o cluster número dois, este cluster tem 784 sujeitos, com rendimentos médios em torno de 111k, 
+#gastando bastante dinheiro em carnes/peixe como indicado pelo pc3 e em pratos principais e itens complementares, Com uma média de idades em 49 anos 
+#talvez queijos, presuntos, vinhos, etc, seria uma boa campanha
