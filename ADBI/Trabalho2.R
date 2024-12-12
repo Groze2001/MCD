@@ -5,10 +5,9 @@ library(corrplot)
 library(psych)
 library(parameters)
 library(performance)
-
-
-
-
+library(dplyr)
+library(ggplot2)
+library(ggdendro)
 
 
 data <- read.csv("Datasets/SaborUrbano.csv")
@@ -16,14 +15,6 @@ Sys.Date()
 #ANO
 format(Sys.Date(), format = "%Y")
 
-#NOVA VARIÁVEL IDADE
-data$Age <- as.numeric(format(Sys.Date(), format = "%Y")) - data$Birthyear
-data$Age
-
-data$Education[data$Education == "graduation"] <- "Graduation"
-data$Education[data$Education == "highschool"] <- "HighSchool"
-data$Education[data$Education == "master"] <- "Master"
-data$Education[data$Education == "phd"] <- "PhD"
 
 head(data)
 
@@ -57,42 +48,14 @@ head(data)
 #Response_Cmp3 - Categórico - indicador de que o cliente aceitou a oferta na campanha 3
 #Response_Cmp4 - Categórico - indicador de que o cliente aceitou a oferta na campanha 4
 #Response_Cmp5 - Categórico - indicador de que o cliente aceitou a oferta na campanha 5
-
+#cp1 - complementares, contem as variaveis com mais informção sobre os items complementares
+#cp2 _ pedidos adicionais, contem as variaveis com mais informção sobre os pedidos adicionais 
+#cp3 - pratos principais, contem as variaveis com mais informção sobre os pratos principais
 
 #Verificar a existência de nulos
 is.na(data)
 
-#1. A gerência do restaurante deseja prever os gastos dos clientes em pratos veganos e vegetarianos
-#(MntVegan&Vegetarian) com base em outras variáveis do dataset.
 
-#a Crie um modelo de Regressão Linear Múltipla para prever MntVegan&Vegetarian, com 4 
-#variáveis explicativas numéricas à sua escolha. Justifique a sua escolha e apresente o 
-#modelo teórico.
-
-selected_data <- data[, c("Income", "Age", "MntDrinks", "MntDesserts")]
-
-# Calcular a matriz de correlação
-cor_matrix <- cor(selected_data, use = "complete.obs")
-
-# Visualizar a matriz de correlação
-corrplot(
-  cor_matrix,
-  method = "color",
-  addCoef.col = "black",
-  tl.col = "black",
-  tl.srt = 45,
-  title = "Matriz de Correlação",
-  cex.main = 0.8
-)
-data_for_model <- data[, c("MntVegan.Vegetarian", "Income", "MntMeat.Fish", "MntDrinks", "MntDesserts")]
-
-# Ajustar o modelo de regressão linear múltipla
-
-# Resumo do modelo
-summary(model)
-check_collinearity(model)
-
-#para a aula
 
 #II
 
@@ -121,7 +84,7 @@ print(bartlett_result)
 #principais? Justifique
 
 # Ajustar os nomes das colunas no código
-pca_result <- principal(data[, c("MntMeat.Fish", "MntEntries", "MntVegan.Vegetarian",
+pca_result <- principal(data[, c("MntMeatFish", "MntEntries", "MntVeganVegetarian",
                                  "MntDrinks", "MntDesserts", "MntAdditionalRequests")],
                         nfactors = 6, rotate = "none")
 
@@ -162,7 +125,7 @@ num_components <- 3
 #b.Aplique a rotação de Varimax. Interprete a solução e atribua nomes sugestivos a cada uma 
 #das componentes extraídas.
 
-rotated_result <- principal(data[, c("MntMeat.Fish", "MntEntries", "MntVegan.Vegetarian","MntDrinks", "MntDesserts", "MntAdditionalRequests")],
+rotated_result <- principal(data[, c("MntMeatFish", "MntEntries", "MntVeganVegetarian","MntDrinks", "MntDesserts", "MntAdditionalRequests")],
                             nfactors = num_components, rotate = "varimax", cor = TRUE)
 
 loadings_rotacao <- rotated_result$loadings[, 1:num_components]
@@ -182,7 +145,7 @@ data <- cbind(data, as.data.frame(rotated_result$scores))
 
 vars_PC1 <- c("MntEntries", "MntDrinks", "MntDesserts")
 vars_PC2 <- c("MntAdditionalRequests")
-vars_PC3 <- c("MntMeat.Fish", "MntVegan.Vegetarian")
+vars_PC3 <- c("MntMeatFish", "MntVeganVegetarian")
 
 data$Indice_PC1 <- rowMeans(data[, vars_PC1], na.rm = TRUE)
 data$Indice_PC2 <- data$MntAdditionalRequests
@@ -197,3 +160,126 @@ print(correlacao_PC2)
 print(correlacao_PC3)
 
 head(data)
+
+#devido a alta correlação de entre os indices e as acps podemos usar este pois contem a mesmo dinamismo de data 
+
+
+#III. Análise Descritiva de Dados Multivariados – Análise de Clusters:
+#A equipa de marketing deseja criar campanhas personalizadas baseadas no comportamento e nas
+#características dos clientes. Para isso, é essencial identificar grupos de clientes com comportamentos
+#semelhantes. Esses grupos serão usados para definir ações específicas, como promoções, ofertas ou
+#recomendações personalizadas.
+
+
+#1. Utilize os índices calculados na ACP, Income e Age como variáveis para o clustering.
+
+
+#a. Construa um dendograma utilizado a métrica de distâncias Euclidiana e o método de Ward.
+#Identifique o número de clusters que achar mais adequado com base no dendograma.
+#Justifique.
+
+
+#eucladiana
+
+dados_clustering <- data[, c("Indice_PC1","Indice_PC2", "Indice_PC3", "Income","Age")]
+
+# Matriz de dissimilaridade (distância euclidiana ao quadrado)
+
+distances <- dist(dados_clustering, method ="euclidean")^2
+dissimilarity_matrix <- as.matrix(round(distances, 2))
+
+#ward
+cluster_hierarchical <- hclust(distances, method = "ward.D2")
+# Criar a tabela do processo aglomerativo
+agglomeration <- data.frame(
+  Step = 1:(nrow(dados_clustering) - 1),
+  Cluster1 = cluster_hierarchical$merge[, 1],
+  Cluster2 = cluster_hierarchical$merge[, 2],
+  Distance = round(cluster_hierarchical$height, 4))
+# Determinar o "Next Stage" para cada cluster
+next_stage <- rep(NA, nrow(agglomeration))
+for (i in 1:nrow(agglomeration)) {next_stage[i] <- which(i == agglomeration$Cluster1 | i == agglomeration$Cluster2)[1]}
+agglomeration$Next_Stage <- ifelse(is.na(next_stage), "-", next_stage)
+# Ajustar nomes dos clusters
+agglomeration$Cluster1 <- ifelse(agglomeration$Cluster1 < 0, -agglomeration$Cluster1, paste0("Cluster_", agglomeration$Cluster1))
+agglomeration$Cluster2 <- ifelse(agglomeration$Cluster2 < 0, -agglomeration$Cluster2, paste0("Cluster_", agglomeration$Cluster2))
+
+
+cluster_hierarchical <- hclust(distances, method = "ward.D2")
+dendro_data <- as.dendrogram(cluster_hierarchical)
+ggdendrogram(dendro_data, theme_dendro = FALSE) + labs(y = "Distância Euclidiana ao Quadrado")
+
+#por uma linha no 3 e 4, a decisão de qual delas escolher deve ter em contas as distancis minimas entre sujeitos mas os grupos devem estas mais afastados possiveis t
+
+
+# b. Aplique o método de K-means para formar 4 grupos.
+
+set.seed(123) # Garantir reprodutibilidade
+kmeans_result <- kmeans(dados_clustering, centers = 4,
+                        nstart = 25)
+# Tabela dos centros finais dos clusters
+final_cluster_centers <-
+  data.frame(kmeans_result$centers)
+# Número de casos em cada cluster
+cluster_sizes <-
+  as.data.frame(table(kmeans_result$cluster))
+colnames(cluster_sizes) <- c("Cluster",
+                             "Número_de_Casos")
+# Distância entre os Final Cluster Centers
+dist_matrix <- as.matrix(dist(kmeans_result$centers))
+
+clusters <- as.factor(kmeans_result$cluster)
+variaveis_clustering <- names(dados_clustering)
+# Iterar sobre as variáveis para calcular a ANOVA
+resultados_anova <- lapply(variaveis_clustering, function(var) {
+  anova_result <- summary(aov(dados_clustering[[var]] ~
+                                clusters))[[1]]
+  f_valor <- anova_result[["F value"]][1]
+  p_valor <- anova_result[["Pr(>F)"]][1]
+  mean_square_cluster <- anova_result[["Mean Sq"]][1]
+  mean_square_error <- anova_result[["Mean Sq"]][2]
+  data.frame(Variável = var, Mean_Square_Cluster =
+               mean_square_cluster, Mean_Square_Error = mean_square_error, F_Valor =
+               f_valor, P_Valor = p_valor)})
+# Combinar os resultados num único data frame
+tabela_anova <- do.call(rbind, resultados_anova)
+
+
+
+data$Cluster <- as.factor(kmeans_result$cluster)
+
+#c. Calcule os centros finais dos clusters, apresente os resultados em gráficos que achar adequados
+
+
+cluster_plot <- ggplot(data, aes(x = Income, y = Indice_PC3, color = Cluster)) +
+  geom_point(size = 3, alpha = 0.8) +
+  labs(title = "Cluster Plot", x = "Income", y = "Indice_PC3") +
+  scale_color_manual(values = c("red", "blue", "green", "purple")) +
+  theme_minimal()
+
+# Display the plot
+print(cluster_plot)
+
+
+#d. Que características distinguem os grupos formados? Justifique.
+
+#os clusters formados, são bastantes distintos pelo o Income, não é de admirar visto que este possui o mair F-value,logo possui o maior fator de diferenciação , usamos o indice_PC3 tambem pois este tinha o 2 maior F-Value
+
+
+#e.Os 4 clusters são formados por quantos clientes? Era espectável termos discrepância no
+#número de casos em cada cluster? Justifique
+
+print(cluster_sizes)
+
+# o grupo 4 possui o menor número de pessoas, devido a estes possuirem salarios bastante elevados. 
+
+
+#f. Sugira uma campanha de marketing direcionada para um dos clusters. Explique como os dados analisados justificam essa escolha
+
+print(final_cluster_centers)
+print(cluster_sizes)
+
+
+#Podemos criar uma campanha para o cluster número dois, este cluster tem 784 sujeitos, com rendimentos médios em torno de 111k, 
+#gastando bastante dinheiro em carnes/peixe como indicado pelo pc3 e em pratos principais e itens complementares, Com uma média de idades em 49 anos 
+#talvez queijos, presuntos, vinhos, etc, seria uma boa campanha
