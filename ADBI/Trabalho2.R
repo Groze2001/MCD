@@ -55,6 +55,174 @@ head(data)
 #Verificar a existência de nulos
 is.na(data)
 
+#BASE DE DADOS
+data <- read.table("SaborUrbano.csv",
+                   header = TRUE,
+                   sep = ",",
+                   dec = ".")
+
+
+dim(data)
+summary(data)
+str(data)
+
+# Visualizar as primeiras linhas do dataset
+head(data)
+
+# Estrutura e resumo dos dados
+str(data)
+library(skimr)
+skim(data)
+
+
+# Existencia de missing values no dataset~
+
+missing_values <- colSums(is.na(data))
+print(missing_values)
+table(data$Education) #existem 32 valores a nulo
+table(data$Marital_Status) #Não existem valores omissos
+
+library(naniar)
+# PARA VARIÁVEIS NUMÉRICAS
+naniar::miss_var_summary(data)
+
+# Criar algumas estatísticas descritivas básicas
+summary(data)
+
+################################################################
+### I. Análise Preditiva de Dados - Regressão Linear:        ###
+################################################################
+
+# A gerência do restaurante deseja prever os gastos dos clientes em pratos veganos e vegetarianos 
+# (MntVegan&Vegetarian) com base em outras variáveis do dataset.
+
+#  Crie um modelo de Regressão Linear Múltipla para prever MntVegan&Vegetarian, com 4 
+# variáveis explicativas numéricas à sua escolha. Justifique a sua escolha e apresente o 
+# modelo teórico.
+
+# ESCOLHA DAS VARIÃVEIS
+
+# Calcular a matriz de correlação
+cor_matrix <- cor(data %>% select(where(is.numeric)), use = "complete.obs")
+
+# Visualizar a matriz de correlação
+# install.packages("corrplot")
+library(corrplot)
+corrplot(cor_matrix, method = "square")
+
+# Focar apenas nas correlações com MntVeganVegetarian
+cor_mnt_vegan <- cor(data$MntVeganVegetarian, data %>% select(where(is.numeric)), use = "complete.obs", method="pearson")
+
+print(cor_mnt_vegan)
+corrplot(cor_mnt_vegan, method = "square")
+
+#library(knitr)
+#kable(cor_mnt_vegan, caption = "Tabela de Correlações")
+
+library(DT)
+datatable(as.data.frame(cor_mnt_vegan), options = list(pageLength = 10), 
+          caption = "Tabela de Correlações")
+
+#INCOME: 0.7044026
+#NumTakeAwayPurchases: 0.7391326
+#NumAppVisitsMonth: -0.5111276
+#MntMeatFish: 0.4818122
+#MntDesserts: 0.4562116
+#MntDrinks: 0.4481272
+#MntEntries: 0.4394089
+
+
+#1) Linearidade do fenómeno em estudo
+
+# Gráficos de dispersão para variáveis candidatas
+pairs(data %>% select(MntVeganVegetarian, Income),
+      main = "Scatterplot Matrix")
+# Gráficos de dispersão para variáveis candidatas
+pairs(data %>% select(MntVeganVegetarian, NumTakeAwayPurchases),
+      main = "Scatterplot Matrix")
+# Gráficos de dispersão para variáveis candidatas
+pairs(data %>% select(MntVeganVegetarian, NumAppVisitsMonth),
+      main = "Scatterplot Matrix")
+# Gráficos de dispersão para variáveis candidatas
+pairs(data %>% select(MntVeganVegetarian, ln_MntMeatFish),
+      main = "Scatterplot Matrix")
+# Gráficos de dispersão para variáveis candidatas
+pairs(data %>% select(MntVeganVegetarian, ln_MntDesserts),
+      main = "Scatterplot Matrix")
+# Gráficos de dispersão para variáveis candidatas
+pairs(data %>% select(MntVeganVegetarian, ln_MntDrinks),
+      main = "Scatterplot Matrix")
+# Gráficos de dispersão para variáveis candidatas
+pairs(data %>% select(MntVeganVegetarian, ln_MntEntries),
+      main = "Scatterplot Matrix")
+
+
+
+# Regressões univariadas
+lm_income <- lm(MntVeganVegetarian ~ Income, data = data)
+lm_num_store <- lm(MntVeganVegetarian ~ NumStorePurchases, data = data)
+lm_num_app <- lm(MntVeganVegetarian ~ NumAppVisitsMonth, data = data)
+lm_meatfish <- lm(MntVeganVegetarian ~ MntMeatFish, data = data)
+lm_desserts <- lm(MntVeganVegetarian ~ MntDesserts, data = data)
+lm_drinks <- lm(MntVeganVegetarian ~ MntDrinks, data = data)
+lm_entries <- lm(MntVeganVegetarian ~ MntEntries, data = data)
+
+
+# Resumo de cada modelo
+summary(lm_income) #Adjusted R-squared:  0.496
+summary(lm_num_store) #
+summary(lm_num_app)
+summary(lm_meatfish)
+summary(lm_desserts)
+summary(lm_drinks)
+summary(lm_entries)
+
+
+# Transformações das variáveis
+data <- data %>%
+  mutate(
+    ln_MntMeatFish = log(MntMeatFish+1),
+    ln_MntDrinks = log(MntDrinks+1),
+    ln_MntDesserts = log(MntDesserts+1),
+    ln_MntEntries = log(MntEntries+1),
+  )
+
+
+# Verificar multicolinearidade antes de construir o modelo final
+library(car)
+lm_data <- lm(MntVeganVegetarian ~ Income + NumStorePurchases + NumAppVisitsMonth + MntDrinks  , data = data)
+summary(lm_data)
+vif(lm_data)
+
+
+#2) Normalidade do erro aleatório
+
+plot(lm_data, which = 5) # Gráfico Q-Q plot
+hist(residuals(lm_data), main = "Histograma dos Resíduos", xlab = "Resíduos", breaks = 30)
+shapiro.test(residuals(lm_data)) # Teste de Shapiro-Wilk
+
+# 3) A média do erro aleatório é nula
+mean(residuals(lm_data)) # Calcula a média dos resíduos
+
+# 4) Independência entre as variáveis explicativas
+
+
+library(performance)
+# Calcula o VIF para as variáveis do modelo
+check_collinearity(lm_data)
+# não existem problemas de multicolinearidade
+
+
+
+###
+data$Gender <- relevel(factor(data$Gender), ref = "Male") # ou "Female", conforme os teus dados
+# Verificar multicolinearidade antes de construir o modelo final
+library(car)
+lm_data_new <- lm(MntVeganVegetarian ~ Income + NumStorePurchases + NumAppVisitsMonth + MntDrinks + Gender + Response_Cmp4 , data = data)
+summary(lm_data_new)
+#  O modelo melhorou consuante o valos do R2 mas a vari´vel Gender não é significativo, teriamos que remover a variável
+lm_data_new <- lm(MntVeganVegetarian ~ Income + NumStorePurchases + NumAppVisitsMonth + MntDrinks + Response_Cmp4 , data = data)
+summary(lm_data_new)
 
 
 #II
