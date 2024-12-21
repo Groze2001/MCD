@@ -52,14 +52,6 @@ head(data)
 #cp2 _ pedidos adicionais, contem as variaveis com mais informção sobre os pedidos adicionais 
 #cp3 - pratos principais, contem as variaveis com mais informção sobre os pratos principais
 
-#Verificar a existência de nulos
-is.na(data)
-
-#BASE DE DADOS
-data <- read.table("SaborUrbano.csv",
-                   header = TRUE,
-                   sep = ",",
-                   dec = ".")
 
 
 dim(data)
