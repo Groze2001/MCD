@@ -443,3 +443,5 @@ print(cluster_sizes)
 #Podemos criar uma campanha para o cluster número dois, este cluster tem 784 sujeitos, com rendimentos médios em torno de 111k, 
 #gastando bastante dinheiro em carnes/peixe como indicado pelo pc3 e em pratos principais e itens complementares, Com uma média de idades em 49 anos 
 #talvez queijos, presuntos, vinhos, etc, seria uma boa campanha
+
+## teste 
