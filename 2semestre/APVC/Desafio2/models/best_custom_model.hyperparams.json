@@ -1,0 +1,7 @@
+{
+    "random_rotation_factor": 0.0,
+    "random_zoom_factor": 0.0,
+    "random_saturation_factor": 0.5,
+    "random_sharpness_factor": 0.7,
+    "dropout_rate": 0.1
+}
