@@ -49,5 +49,39 @@
         },
         "maep": 4.4861486836608355,
         "forecast_length": 35
+    },
+    {
+        "params": {
+            "order": [
+                2,
+                1,
+                3
+            ],
+            "seasonal_order": [
+                1,
+                1,
+                1,
+                12
+            ]
+        },
+        "maep": 3.6171060667385886,
+        "forecast_length": 35
+    },
+    {
+        "params": {
+            "order": [
+                2,
+                1,
+                3
+            ],
+            "seasonal_order": [
+                2,
+                1,
+                2,
+                12
+            ]
+        },
+        "maep": 3.5368012319033095,
+        "forecast_length": 35
     }
 ]
