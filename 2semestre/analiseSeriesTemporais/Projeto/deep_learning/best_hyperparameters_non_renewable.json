@@ -1,0 +1,6 @@
+{
+    "first_lstm_layer_size": 160,
+    "second_lstm_layer_size": 64,
+    "dense_layer_size": 64,
+    "learning_rate": 0.0009825684731940704
+}
