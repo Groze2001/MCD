@@ -1,0 +1,7 @@
+{
+    "n_lags": 5,
+    "hidden_layers": [
+        25,
+        45
+    ]
+}
